@@ -46,9 +46,11 @@ object DETechTest extends Serializable {
     tempTableDf.createOrReplaceTempView("resultTable")
     val resultTableDf = spark.sql("select column1,column2  from resultTable where  oddColumn = 'odd' ")
     resultTableDf.createOrReplaceTempView("errorCheck")
-    val errorCheckDf = spark.sql("select count(1) from errorCheck")
+    val errorCheckDfTemp = spark.sql("select column1 ,count(1) as errorCnt from errorCheck group by column1")
+    errorCheckDfTemp.createOrReplaceTempView("finalErrorCheck")
+    val finalErrorCheck = spark.sql("select max(errorCnt) as countError from finalErrorCheck")
     // Error condition check
-    val error: Long = errorCheckDf.collect()(0).getLong(0)
+    val error: Long = finalErrorCheck.collect()(0).getLong(0)
     if (error > 1) {
       throw new Exception("More than one odd value pairs")
     } else if (error == 0) {
