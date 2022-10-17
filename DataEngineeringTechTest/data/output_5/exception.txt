@@ -1,0 +1,14 @@
+22/10/17 14:04:08 INFO DAGScheduler: ResultStage 0 (collect at DETechTest.scala:51) finished in 1.266 s
+22/10/17 14:04:08 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+22/10/17 14:04:08 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+22/10/17 14:04:08 INFO DAGScheduler: Job 0 finished: collect at DETechTest.scala:51, took 1.339831 s
+22/10/17 14:04:08 INFO CodeGenerator: Code generated in 14.9071 ms
+Exception in thread "main" java.lang.Exception: More than one odd value pairs
+	at myproj.techtest.DETechTest$.main(DETechTest.scala:53)
+	at myproj.techtest.DETechTest.main(DETechTest.scala)
+22/10/17 14:04:09 INFO SparkContext: Invoking stop() from shutdown hook
+22/10/17 14:04:09 INFO SparkUI: Stopped Spark web UI at http://DESKTOP-3F5GL5I:4040
+22/10/17 14:04:09 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+22/10/17 14:04:09 INFO MemoryStore: MemoryStore cleared
+22/10/17 14:04:09 INFO BlockManager: BlockManager stopped
+22/10/17 14:04:09 INFO BlockManagerMaster: BlockManagerMaster stopped
